@@ -78,7 +78,6 @@ const PlaidLink = React.createClass({
   },
   getInitialState: function() {
     return {
-      disabledButton: true,
       linkLoaded: false,
     };
   },
@@ -102,8 +101,6 @@ const PlaidLink = React.createClass({
       token: this.props.token,
       webhook: this.props.webhook,
     });
-
-    this.setState({disabledButton: false});
   },
   handleLinkOnLoad: function() {
     this.props.onLoad && this.props.onLoad();
@@ -120,7 +117,6 @@ const PlaidLink = React.createClass({
   render: function() {
     return (
       <button onClick={this.handleOnClick}
-              disabled={this.state.disabledButton}
               {...this.props} >
         <span>{this.props.buttonText}</span>
       </button>
